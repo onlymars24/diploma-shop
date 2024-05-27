@@ -9,7 +9,7 @@ class Modification extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'text',
+        'name',
         'generation_id',
     ];
 

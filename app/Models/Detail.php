@@ -15,6 +15,9 @@ class Detail extends Model
         'price',
         'image',
         'count',
+        'brand_id',
+        'design_id',
+        'generation_id',
         'modification_id',
     ];
 

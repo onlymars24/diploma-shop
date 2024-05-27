@@ -21,7 +21,11 @@ return new class extends Migration
             $table->double('price');
             $table->string('image');
             $table->integer('count');
+            $table->integer('brand_id');
+            $table->integer('design_id');
+            $table->integer('generation_id');
             $table->integer('modification_id');
+            $table->integer('type_id');
             $table->timestamps();
         });
     }

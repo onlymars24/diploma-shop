@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Detail;
 use App\Models\Modification;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
 {
     public function all(Request $request){
-        $modification = Modification::find($request->modificationId);
+        $whereParams = [
+            ['modification_id', '=', $request->modificationId],
+        ];
+        if(isset($request->typeId)){
+            $whereParams[] = ['type_id', '=', $request->typeId];
+        }
+        $details = Detail::where($whereParams)->get();
         return response([
-            'details' => $modification->details
+            'details' => $details
         ]);
     }
 }

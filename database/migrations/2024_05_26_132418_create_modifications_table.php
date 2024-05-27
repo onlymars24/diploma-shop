@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('modifications', function (Blueprint $table) {
             $table->id();
-            $table->text('text');
+            $table->text('name');
             $table->integer('generation_id');
             $table->timestamps();
         });
