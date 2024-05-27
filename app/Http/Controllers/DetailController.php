@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class DetailController extends Controller
 {
+    public function one(Request $request){
+        return response([
+            'detail' => Detail::find($request->detailId)
+        ]);
+    }
     public function all(Request $request){
         $whereParams = [
             ['modification_id', '=', $request->modificationId],

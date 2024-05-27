@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TypeController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DesignController;
 use App\Http\Controllers\DetailController;
@@ -32,4 +33,7 @@ Route::get('/generations', [GenerationController::class, 'all']);
 
 Route::get('/modifications', [ModificationController::class, 'all']);
 
+Route::get('/detail', [DetailController::class, 'one']);
 Route::get('/details', [DetailController::class, 'all']);
+
+Route::get('/types', [TypeController::class, 'all']);
