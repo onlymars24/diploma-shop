@@ -16,7 +16,7 @@ class ModificationController extends Controller
         if(isset($request->typeId)){
             $whereParams[] = ['type_id', '=', $request->typeId];
         }
-        $details = Detail::where($whereParams)->get();
+        $details = Detail::where($whereParams)->with(['type', 'design', 'brand', 'modification', 'generation'])->get();
         return response([
             'modifications' => $generation->modifications,
             'details' => $details
