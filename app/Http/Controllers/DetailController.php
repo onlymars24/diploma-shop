@@ -10,7 +10,7 @@ class DetailController extends Controller
 {
     public function one(Request $request){
         return response([
-            'detail' => Detail::find($request->detailId)
+            'detail' => Detail::with(['type', 'design', 'brand', 'modification', 'generation'])->find($request->detailId)
         ]);
     }
     public function all(Request $request){
