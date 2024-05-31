@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Brand;
+use App\Models\Design;
+use App\Models\Modification;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     // return view('welcome');
-    $brand = Brand::find(1);
-    dd($brand->toArray());
-    $order_json = '[{"id":5,"quantity":1},{"id":1,"quantity":1}]';
-    dd(json_decode($order_json));
+    $modification = Modification::find(1);
+    dd($modification->generation->design->brand);
 
     // return '';
 });

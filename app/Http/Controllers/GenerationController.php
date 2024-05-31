@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Design;
 use App\Models\Detail;
+use App\Models\Generation;
 use Illuminate\Http\Request;
 
 class GenerationController extends Controller
@@ -20,6 +21,25 @@ class GenerationController extends Controller
         return response([
             'generations' => $design->generations,
             'details' => $details
+        ]);
+    }
+
+    public function create(Request $request){
+        $generation = Generation::create([
+            'name' => $request->name,
+            'design_id' => $request->designId
+        ]);
+        return response([
+            'generation' => $generation
+        ]);
+    }
+
+    public function edit(Request $request){
+        $generation = Generation::create($request->generationId);
+        $generation->name = $request->name;
+        $generation->save();
+        return response([
+            'generation' => $generation
         ]);
     }
 }

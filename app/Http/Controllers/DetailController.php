@@ -25,4 +25,26 @@ class DetailController extends Controller
             'details' => $details
         ]);
     }
+
+    public function create(Request $request){
+        $modification = Modification::find($request->modificationId);
+        $generation = $modification->generation;
+        $design = $generation->design;
+        $brand = $design->brand;
+        $detail = Detail::create([
+            'detail_brand' => $request->detail_brand,
+            'number' => $request->number,
+            'descr' => $request->descr,
+            'price' => $request->price,
+            'count' => $request->count,
+            'brand_id' => $brand->id,
+            'design_id' => $design->id,
+            'generation_id' => $generation->id,
+            'modification_id' => $modification->id,
+            'type_id' => $request->typeId,
+        ]);
+        return response([
+            'detail' => $detail
+        ]);
+    }
 }

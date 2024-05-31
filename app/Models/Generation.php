@@ -18,4 +18,9 @@ class Generation extends Model
     {
         return $this->hasMany(Modification::class);
     }
+    
+    public function design()
+    {
+        return $this->belongsTo(Design::class);
+    }
 }

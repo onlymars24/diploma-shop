@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->json('list');
             $table->decimal('total');
-            $table->enum('status', ['pending', 'assembly', 'ready']);
+            $table->enum('status', ['В обработке', 'В сборке', 'Готов к выдаче']);
             $table->integer('user_id');
             $table->timestamps();
         });

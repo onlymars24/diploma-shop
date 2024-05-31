@@ -38,5 +38,6 @@ class OrderController extends Controller
         $order = Order::find($request->orderId);
         $order->status = $request->status;
         $order->save();
+        // if($reqeust->status == '')
     }
 }

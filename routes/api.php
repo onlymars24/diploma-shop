@@ -34,12 +34,21 @@ Route::post('/order/status', [OrderController::class, 'status']);
 
 
 Route::get('/brands', [BrandController::class, 'all']);
+Route::post('/brands/create', [BrandController::class, 'create']);
+Route::post('/brands/edit', [BrandController::class, 'edit']);
+
 
 Route::get('/designs', [DesignController::class, 'all']);
+Route::post('/designs/create', [DesignController::class, 'create']);
+Route::post('/designs/edit', [DesignController::class, 'edit']);
 
 Route::get('/generations', [GenerationController::class, 'all']);
+Route::post('/generations/create', [GenerationController::class, 'create']);
+Route::post('/generations/edit', [GenerationController::class, 'edit']);
 
 Route::get('/modifications', [ModificationController::class, 'all']);
+Route::post('/modifications/create', [ModificationController::class, 'create']);
+Route::post('/modifications/edit', [ModificationController::class, 'edit']);
 
 Route::get('/detail', [DetailController::class, 'one']);
 Route::get('/details', [DetailController::class, 'all']);

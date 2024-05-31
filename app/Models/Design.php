@@ -18,4 +18,9 @@ class Design extends Model
     {
         return $this->hasMany(Generation::class);
     }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 }

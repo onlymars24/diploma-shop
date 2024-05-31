@@ -17,4 +17,9 @@ class Modification extends Model
     {
         return $this->hasMany(Detail::class);
     }
+
+    public function generation()
+    {
+        return $this->belongsTo(Generation::class);
+    }
 }
