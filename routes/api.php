@@ -22,8 +22,9 @@ use App\Http\Controllers\ModificationController;
 |
 */
 
-Route::middleware('auth:sanctum')->group(function(){ 
+Route::middleware('auth:api')->group(function(){ 
     Route::post('/order', [OrderController::class, 'order']);
+    Route::get('/user', [AuthController::class, 'user']);
 });
 
 
@@ -44,4 +45,3 @@ Route::get('/types', [TypeController::class, 'all']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/user', [AuthController::class, 'user']);
