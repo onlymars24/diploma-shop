@@ -11,7 +11,7 @@ class OrderController extends Controller
 {
     public function order(Request $request){
         $cart = $request->cart;
-        $list = [['detail' => [],'quantity' => 1,]];
+        $list = [];
         $total = 0;
         foreach($cart as $el){
             $detail = Detail::find($el->id);
