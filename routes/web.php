@@ -18,10 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $brand = DB::table('brands')->find(1);
     // $brand->name = 'brand new';
     // $brand->save();
-    dd($brand);
+    dd(DB::table('brands')->where('id', 1)->update(['name' => ' very new brand']));
     // return view('welcome');
     $modification = Modification::find(1);
     dd($modification->generation->design->brand);

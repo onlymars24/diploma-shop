@@ -37,7 +37,7 @@ class DesignController extends Controller
     }
 
     public function edit(Request $request){
-        $design = Design::create($request->designId);
+        $design = Design::find($request->designId);
         $design->name = $request->name;
         $design->save();
         return response([

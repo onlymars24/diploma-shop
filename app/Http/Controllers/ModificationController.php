@@ -35,7 +35,7 @@ class ModificationController extends Controller
     }
 
     public function edit(Request $request){
-        $modification = Modification::create($request->modificationId);
+        $modification = Modification::find($request->modificationId);
         $modification->name = $request->name;
         $modification->save();
         return response([

@@ -25,7 +25,7 @@ class BrandController extends Controller
     }
 
     public function edit(Request $request){
-        $brand = Brand::create($request->brandId);
+        $brand = Brand::find($request->brandId);
         $brand->name = $request->name;
         $brand->save();
         return response([

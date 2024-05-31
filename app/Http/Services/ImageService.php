@@ -18,7 +18,6 @@ class ImageService
             if(File::exists($filePath)) {
                 File::delete($filePath);
             }
-            $row->image = $path;         
-            $row->save();   
+            DB::table($table)->where('id', 1)->update(['image' => $path]);
     }
 }

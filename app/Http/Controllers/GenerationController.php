@@ -35,7 +35,7 @@ class GenerationController extends Controller
     }
 
     public function edit(Request $request){
-        $generation = Generation::create($request->generationId);
+        $generation = Generation::find($request->generationId);
         $generation->name = $request->name;
         $generation->save();
         return response([
