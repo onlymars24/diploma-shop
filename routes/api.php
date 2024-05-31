@@ -36,6 +36,7 @@ Route::post('/order/status', [OrderController::class, 'status']);
 Route::get('/brands', [BrandController::class, 'all']);
 Route::post('/brands/create', [BrandController::class, 'create']);
 Route::post('/brands/edit', [BrandController::class, 'edit']);
+Route::post('/brands/image/upload', [BrandController::class, 'edit']);
 
 
 Route::get('/designs', [DesignController::class, 'all']);

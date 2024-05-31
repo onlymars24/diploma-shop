@@ -26,7 +26,7 @@ class OrderController extends Controller
             'list' => json_encode($list),
             'total' => $total,
             'user_id' => $user->id,
-            'status' => 'pending'
+            'status' => 'В обработке'
         ]);
         return response([
             'order' => $order

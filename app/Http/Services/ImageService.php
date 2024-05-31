@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 
 class ImageService
 {
-    public function upload($table, $file){
+    public static function upload($table, $file){
             // $file = $request->file('file');
             $path = $file->store('image');
             $row = DB::table($table)->find(1);
