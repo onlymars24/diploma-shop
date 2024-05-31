@@ -42,12 +42,17 @@ class AuthController extends Controller
         if(!Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             return response(['message' => 'Неверный номер или пароль!'], 422);
         }
-
         
         $token = Auth::user()->createToken('authToken')->accessToken;
 
         return response([
             'token' => $token
+        ]);
+    }
+
+    public function user(){
+        return response([
+            'user' => Auth::user()
         ]);
     }
 }
