@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use App\Http\Services\ImageService;
 
 class BrandController extends Controller
 {
@@ -33,7 +34,9 @@ class BrandController extends Controller
     }
 
     public function uploadImage(Request $request){
-        $brand = Brand::find($request->brandId);
-        
+        if($request->hasFile('file')){
+            ImageService::upload('brands', $request->file('file'));
+        }
+    
     }
 }

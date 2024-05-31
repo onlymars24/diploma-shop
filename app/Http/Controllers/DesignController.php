@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Design;
 use App\Models\Detail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class DesignController extends Controller
 {
@@ -25,6 +26,7 @@ class DesignController extends Controller
     }
 
     public function create(Request $request){
+        Log::info('$request->brandId '.$request->brandId);
         $design = Design::create([
             'name' => $request->name,
             'brand_id' => $request->brandId

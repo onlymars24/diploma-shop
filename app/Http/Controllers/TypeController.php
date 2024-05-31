@@ -21,4 +21,11 @@ class TypeController extends Controller
             'type' => $type
         ]);
     }
+    public function edit(Request $request){
+        $type = Type::find($request->typeId);
+        $type->name = $request->name;
+        return response([
+            'type' => $type
+        ]);
+    }
 }

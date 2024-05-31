@@ -3,6 +3,7 @@
 use App\Models\Brand;
 use App\Models\Design;
 use App\Models\Modification;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $brand = DB::table('brands')->find(3);
+    dd($brand);
     // return view('welcome');
     $modification = Modification::find(1);
     dd($modification->generation->design->brand);

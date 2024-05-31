@@ -29,7 +29,6 @@ class DatabaseSeeder extends Seeder
         for($i=1; $i<=5; $i++){
             $brand = Brand::create([
                 'name' => 'Бренд '.$i,
-                'image' => 'https://avatars.dzeninfra.ru/get-zen_doc/4473624/pub_608521d53b735b52f8068061_60852321874e5a0225c9f7e2/scale_1200'
             ]);
             for($j=1; $j<=5; $j++){
                 $design = Design::create([
@@ -39,7 +38,6 @@ class DatabaseSeeder extends Seeder
                 for($s=1; $s<=5; $s++){
                     $generation = Generation::create([
                         'name' => 'Поколение '.$s,
-                        'image' => 'https://w7.pngwing.com/pngs/475/527/png-transparent-automotive-engine-parts-car-parts-engine.png',
                         'design_id' => $design->id
                     ]);
                     for($g=1; $g<=5; $g++){
@@ -53,7 +51,6 @@ class DatabaseSeeder extends Seeder
                                 'number' => 'sadkljfadsjk324',
                                 'descr' => 'Описание детали '.$p+$i,
                                 'price' => 1000,
-                                'image' => 'https://www.skb-4.com/sites/default/files/category_images/detali_i_uzly_machin_i_mehanizmov.jpg',
                                 'count' => 123,
                                 'brand_id' => $brand->id,
                                 'design_id' => $design->id,
