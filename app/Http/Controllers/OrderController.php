@@ -21,6 +21,7 @@ class OrderController extends Controller
             $total += $detail->price;
         }
         $user = Auth::user();
+        Log::info($user);
         $order = Order::create([
             'list' => json_encode($list),
             'total' => $total,
