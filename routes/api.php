@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DesignController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\GenerationController;
@@ -24,6 +25,8 @@ use App\Http\Controllers\ModificationController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/order', [OrderController::class, 'order']);
 
 
 Route::get('/brands', [BrandController::class, 'all']);
