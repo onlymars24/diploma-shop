@@ -27,7 +27,7 @@ class ModificationController extends Controller
     public function create(Request $request){
         $modification = Modification::create([
             'name' => $request->name,
-            'modification_id' => $request->modificationId
+            'generation_id' => $request->generationId
         ]);
         return response([
             'modification' => $modification

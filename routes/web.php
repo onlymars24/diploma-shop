@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $brand = DB::table('brands')->find(3);
+    $brand = DB::table('brands')->find(1);
+    // $brand->name = 'brand new';
+    // $brand->save();
     dd($brand);
     // return view('welcome');
     $modification = Modification::find(1);
