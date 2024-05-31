@@ -16,8 +16,8 @@ class OrderController extends Controller
         $list = [];
         $total = 0;
         foreach($cart as $el){
-            $detail = Detail::find($el->id);
-            $list[] = ['detail' => $detail->toArray(), 'quantity' => $el->quantity];
+            $detail = Detail::find($el['id']);
+            $list[] = ['detail' => $detail->toArray(), 'quantity' => $el['quantity']];
             $total += $detail->price;
         }
         $user = Auth::user();
