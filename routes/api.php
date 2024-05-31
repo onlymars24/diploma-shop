@@ -28,7 +28,7 @@ Route::middleware('auth:api')->group(function(){
 });
 
 
-Route::post('/order', [OrderController::class, 'status']);
+Route::post('/order/status', [OrderController::class, 'status']);
 
 
 
