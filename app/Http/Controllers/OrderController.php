@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Detail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
     public function order(Request $request){
+        Log::info(json_encode($request->cart));
         $cart = $request->cart;
         $list = [];
         $total = 0;
