@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 
 class ImageService
 {
-    public static function upload($table, $file){
+    public static function upload($table, $file, $id){
             // $file = $request->file('file');
             $path = $file->store('image');
             $row = DB::table($table)->find(1);
@@ -18,6 +18,6 @@ class ImageService
             if(File::exists($filePath)) {
                 File::delete($filePath);
             }
-            DB::table($table)->where('id', 1)->update(['image' => $path]);
+            DB::table($table)->where('id', $id)->update(['image' => $path]);
     }
 }
