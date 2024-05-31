@@ -24,6 +24,9 @@ class OrderController extends Controller
             'total' => $total,
             'user_id' => $user->id
         ]);
+        return response([
+            'order' => $order
+        ]);
         // $cart = json_decode($cart);
     }
 }

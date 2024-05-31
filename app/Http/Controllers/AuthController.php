@@ -51,8 +51,9 @@ class AuthController extends Controller
     }
 
     public function user(){
+        $user = User::with(['orders'])->find(Auth::id());
         return response([
-            'user' => Auth::user()
+            'user' => $user
         ]);
     }
 }
