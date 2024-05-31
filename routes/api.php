@@ -28,6 +28,9 @@ Route::middleware('auth:api')->group(function(){
 });
 
 
+Route::post('/order', [OrderController::class, 'status']);
+
+
 
 
 Route::get('/brands', [BrandController::class, 'all']);

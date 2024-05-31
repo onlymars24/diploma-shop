@@ -16,7 +16,7 @@ class OrderController extends Controller
         $list = [];
         $total = 0;
         foreach($cart as $el){
-            $detail = Detail::find($el['id']);
+            $detail = Detail::with(['type', 'design', 'brand', 'modification', 'generation'])->find($el['id']);
             $list[] = ['detail' => $detail->toArray(), 'quantity' => $el['quantity']];
             $total += $detail->price;
         }
@@ -32,5 +32,11 @@ class OrderController extends Controller
             'order' => $order
         ]);
         // $cart = json_decode($cart);
+    }
+
+    public function status(Request $request){
+        $order = Order::find($request->orderId);
+        $order->status = $request->status;
+        $order->save();
     }
 }
