@@ -44,3 +44,4 @@ Route::get('/types', [TypeController::class, 'all']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/user', [AuthController::class, 'user']);
