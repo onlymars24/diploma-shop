@@ -34,6 +34,7 @@ class BrandController extends Controller
     }
 
     public function uploadImage(Request $request){
+        Log::info($request->brandId);
         if($request->hasFile('file')){
             ImageService::upload('brands', $request->file('file'), $request->brandId);
         }
