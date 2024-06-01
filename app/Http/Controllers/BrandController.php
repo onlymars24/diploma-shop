@@ -38,9 +38,9 @@ class BrandController extends Controller
         Log::info(json_encode($request->all()));
         Log::info('$request->brandId ');
         Log::info('$request->brandId '.$request->brandId);
-        if($request->hasFile('file')){
-            ImageService::upload('brands', $request->file('file'), $request->brandId);
-        }
+        // if($request->hasFile('file')){
+        //     ImageService::upload('brands', $request->file('file'), $request->brandId);
+        // }
     
     }
 }
