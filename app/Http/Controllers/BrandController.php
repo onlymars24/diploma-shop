@@ -26,6 +26,8 @@ class BrandController extends Controller
     }
 
     public function edit(Request $request){
+        Log::info('$request->brandId '.$request->brandId);
+        Log::info('$request->namw '.$request->name);
         $brand = Brand::find($request->brandId);
         $brand->name = $request->name;
         $brand->save();
