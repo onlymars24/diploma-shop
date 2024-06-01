@@ -60,8 +60,8 @@ Route::post('/details/edit', [DetailController::class, 'edit']);
 Route::post('/details/image/upload', [DetailController::class, 'uploadImage']);
 
 Route::get('/types', [TypeController::class, 'all']);
-Route::get('/types/create', [TypeController::class, 'create']);
-Route::get('/types/edit', [TypeController::class, 'edit']);
+Route::post('/types/create', [TypeController::class, 'create']);
+Route::post('/types/edit', [TypeController::class, 'edit']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
