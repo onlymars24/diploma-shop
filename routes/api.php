@@ -55,6 +55,7 @@ Route::post('/modifications/edit', [ModificationController::class, 'edit']);
 Route::get('/detail', [DetailController::class, 'one']);
 Route::get('/details', [DetailController::class, 'all']);
 Route::get('/details/create', [DetailController::class, 'create']);
+Route::get('/details/edit', [DetailController::class, 'edit']);
 Route::post('/details/image/upload', [DetailController::class, 'uploadImage']);
 
 Route::get('/types', [TypeController::class, 'all']);

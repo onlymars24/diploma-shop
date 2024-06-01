@@ -49,6 +49,20 @@ class DetailController extends Controller
         ]);
     }
 
+    public function edit(Request $request){
+        $detail = Detail::find($request->detailId);
+        $detail->update([
+            'detail_brand' => $request->detail_brand,
+            'number' => $request->number,
+            'descr' => $request->descr,
+            'price' => $request->price,
+            'count' => $request->count
+        ]);
+        return response([
+            'detail' => $detail
+        ]);
+    }
+
     public function uploadImage(Request $request){
         if($request->hasFile('file')){
             ImageService::upload('details', $request->file('file'), $request->detailId);
