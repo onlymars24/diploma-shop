@@ -12,12 +12,12 @@ class ImageService
 {
     public static function upload($table, $file, $id){
             // $file = $request->file('file');
-            // $path = $file->store('image');
-            // $row = DB::table($table)->find($id);
-            // $filePath = public_path($row->image);
-            // if(File::exists($filePath)) {
-            //     File::delete($filePath);
-            // }
-            // DB::table($table)->where('id', $id)->update(['name' => $row->name, 'image' => $path]);
+            $path = $file->store('image');
+            $row = DB::table($table)->find($id);
+            $filePath = public_path($row->image);
+            if(File::exists($filePath)) {
+                File::delete($filePath);
+            }
+            DB::table($table)->where('id', $id)->update(['image' => $path]);
     }
 }
