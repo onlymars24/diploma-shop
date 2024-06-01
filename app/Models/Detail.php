@@ -19,6 +19,7 @@ class Detail extends Model
         'design_id',
         'generation_id',
         'modification_id',
+        'type_id',
     ];
     public function type()
     {
