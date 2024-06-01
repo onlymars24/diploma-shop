@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    dd('qwe');
     // $brand->name = 'brand new';
     // $brand->save();
     dd(DB::table('brands')->where('id', 1)->update(['image' => 'image/asdfsadfsadfasdf.jpg']));
