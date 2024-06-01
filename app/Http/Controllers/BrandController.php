@@ -35,6 +35,7 @@ class BrandController extends Controller
     }
 
     public function uploadImage(Request $request){
+        Log::info(json_encode($request->all()));
         Log::info('$request->brandId ');
         Log::info('$request->brandId '.$request->brandId);
         if($request->hasFile('file')){
