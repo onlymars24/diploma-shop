@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Detail;
 use App\Models\Modification;
 use Illuminate\Http\Request;
+use App\Http\Services\ImageService;
 
 class DetailController extends Controller
 {
@@ -46,5 +47,11 @@ class DetailController extends Controller
         return response([
             'detail' => $detail
         ]);
+    }
+
+    public function uploadImage(Request $request){
+        if($request->hasFile('file')){
+            ImageService::upload('details', $request->file('file'), $request->detailId);
+        }
     }
 }

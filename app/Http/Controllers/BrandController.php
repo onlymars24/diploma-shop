@@ -26,8 +26,6 @@ class BrandController extends Controller
     }
 
     public function edit(Request $request){
-        Log::info('$request->brandId '.$request->brandId);
-        Log::info('$request->namw '.$request->name);
         $brand = Brand::find($request->brandId);
         $brand->name = $request->name;
         $brand->save();
@@ -37,12 +35,8 @@ class BrandController extends Controller
     }
 
     public function uploadImage(Request $request){
-        Log::info(json_encode($request->all()));
-        Log::info('$request->brandId ');
-        Log::info('$request->brandId '.$request->brandId);
         if($request->hasFile('file')){
             ImageService::upload('brands', $request->file('file'), $request->brandId);
         }
-    
     }
 }

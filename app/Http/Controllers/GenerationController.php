@@ -6,6 +6,7 @@ use App\Models\Design;
 use App\Models\Detail;
 use App\Models\Generation;
 use Illuminate\Http\Request;
+use App\Http\Services\ImageService;
 
 class GenerationController extends Controller
 {
@@ -41,5 +42,11 @@ class GenerationController extends Controller
         return response([
             'generation' => $generation
         ]);
+    }
+
+    public function uploadImage(Request $request){
+        if($request->hasFile('file')){
+            ImageService::upload('generations', $request->file('file'), $request->generationId);
+        }
     }
 }

@@ -46,6 +46,7 @@ Route::post('/designs/edit', [DesignController::class, 'edit']);
 Route::get('/generations', [GenerationController::class, 'all']);
 Route::post('/generations/create', [GenerationController::class, 'create']);
 Route::post('/generations/edit', [GenerationController::class, 'edit']);
+Route::post('/generations/image/upload', [GenerationController::class, 'uploadImage']);
 
 Route::get('/modifications', [ModificationController::class, 'all']);
 Route::post('/modifications/create', [ModificationController::class, 'create']);
@@ -53,6 +54,8 @@ Route::post('/modifications/edit', [ModificationController::class, 'edit']);
 
 Route::get('/detail', [DetailController::class, 'one']);
 Route::get('/details', [DetailController::class, 'all']);
+Route::get('/details/create', [DetailController::class, 'create']);
+Route::post('/details/image/upload', [DetailController::class, 'uploadImage']);
 
 Route::get('/types', [TypeController::class, 'all']);
 
