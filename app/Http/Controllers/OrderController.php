@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    public function all(){
+        return response([
+            'orders' => Order::all()
+        ]);
+    }
+
     public function order(Request $request){
         Log::info(json_encode($request->cart));
         $cart = $request->cart;
