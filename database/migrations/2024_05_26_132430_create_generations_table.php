@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('generations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image')->nullable();
+            $table->string('image')->default('default');
             $table->integer('design_id');
             $table->timestamps();
         });
