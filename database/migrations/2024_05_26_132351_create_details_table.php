@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('number');
             $table->text('descr');
             $table->double('price');
-            $table->string('image')->default('image/default.jpg');
+            $table->string('image')->nullable();
             $table->integer('count');
             $table->integer('brand_id');
             $table->integer('design_id');
