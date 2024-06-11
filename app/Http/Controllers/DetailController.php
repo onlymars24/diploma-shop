@@ -30,18 +30,18 @@ class DetailController extends Controller
 
     public function filter(Request $request){
         $filter = $request->filter;
-        $details = Detail::where('detail_brand', 'like', $request->filter.'%')
+        $details = Detail::where('detail_brand', 'like', '%'.$filter.'%')
         ->orwhereHas('design', function (Builder $query) use($filter) {
-            $query->where('name', 'like', $filter.'%');
+            $query->where('name', 'like', '%'.$filter.'%');
         })
         ->orWhereHas('brand', function (Builder $query) use($filter)  {
-            $query->where('name', 'like', $filter.'%');
+            $query->where('name', 'like', '%'.$filter.'%');
         })
         ->orWhereHas('generation', function (Builder $query) use($filter)  {
-            $query->where('name', 'like', $filter.'%');
+            $query->where('name', 'like', '%'.$filter.'%');
         })
         ->orWhereHas('modification', function (Builder $query) use($filter)  {
-            $query->where('name', 'like', $filter.'%');
+            $query->where('name', 'like', '%'.$filter.'%');
         })
         ->with(['design', 'brand', 'generation', 'modification'])
         ->get();
