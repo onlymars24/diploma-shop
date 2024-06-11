@@ -6,6 +6,7 @@ use App\Models\Detail;
 use App\Models\Modification;
 use Illuminate\Http\Request;
 use App\Http\Services\ImageService;
+use Illuminate\Database\Eloquent\Builder;
 
 class DetailController extends Controller
 {
@@ -22,6 +23,28 @@ class DetailController extends Controller
             $whereParams[] = ['type_id', '=', $request->typeId];
         }
         $details = Detail::where($whereParams)->with(['type', 'design', 'brand', 'modification', 'generation'])->get();
+        return response([
+            'details' => $details
+        ]);
+    }
+
+    public function filter(Request $request){
+        $filter = $request->filter;
+        $details = Detail::where('detail_brand', 'like', $request->filter.'%')
+        ->orwhereHas('design', function (Builder $query) use($filter) {
+            $query->where('name', 'like', $filter.'%');
+        })
+        ->orWhereHas('brand', function (Builder $query) use($filter)  {
+            $query->where('name', 'like', $filter.'%');
+        })
+        ->orWhereHas('generation', function (Builder $query) use($filter)  {
+            $query->where('name', 'like', $filter.'%');
+        })
+        ->orWhereHas('modification', function (Builder $query) use($filter)  {
+            $query->where('name', 'like', $filter.'%');
+        })
+        ->with(['design', 'brand', 'generation', 'modification'])
+        ->get();
         return response([
             'details' => $details
         ]);

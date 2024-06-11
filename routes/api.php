@@ -58,6 +58,7 @@ Route::get('/details', [DetailController::class, 'all']);
 Route::post('/details/create', [DetailController::class, 'create']);
 Route::post('/details/edit', [DetailController::class, 'edit']);
 Route::post('/details/image/upload', [DetailController::class, 'uploadImage']);
+Route::get('/details/filter', [DetailController::class, 'filter']);
 
 Route::get('/types', [TypeController::class, 'all']);
 Route::post('/types/create', [TypeController::class, 'create']);
