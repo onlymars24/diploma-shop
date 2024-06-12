@@ -25,7 +25,7 @@ class OrderController extends Controller
             $detail = Detail::with(['type', 'design', 'brand', 'modification', 'generation'])->find($el['id']);
             $list[] = ['detail' => $detail->toArray(), 'quantity' => $el['quantity']];
             $total += $detail->price;
-            $detail->count = $detail->count-1;
+            $detail->count = $detail->count-$el['quantity'];
             $detail->save();
         }
         $user = Auth::user();
