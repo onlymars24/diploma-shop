@@ -43,6 +43,9 @@ class DetailController extends Controller
         ->orWhereHas('modification', function (Builder $query) use($filter)  {
             $query->where('name', 'like', '%'.$filter.'%');
         })
+        ->orWhereHas('type', function (Builder $query) use($filter)  {
+            $query->where('name', 'like', '%'.$filter.'%');
+        })
         ->with(['design', 'brand', 'generation', 'modification', 'type'])
         ->get();
         return response([
